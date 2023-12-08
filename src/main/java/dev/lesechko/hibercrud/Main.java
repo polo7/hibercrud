@@ -1,4 +1,4 @@
-package dev.lesechko;
+package dev.lesechko.hibercrud;
 
 public class Main {
     public static void main(String[] args) {
