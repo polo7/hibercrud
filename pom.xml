@@ -12,12 +12,18 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <postgresql.version>42.7.0</postgresql.version>
         <junit.version>5.10.0</junit.version>
         <mockito.version>5.7.0</mockito.version>
         <flyway.version>10.1.0</flyway.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -38,9 +44,14 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway.version}</version>
+                <configuration>
+                    <url>jdbc:postgresql://localhost/hibercrud</url>
+                    <user>postgres</user>
+<!--                    <configFiles>-->
+<!--                        <configFile>flyway.toml</configFile>-->
+<!--                    </configFiles>-->
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
-
 </project>

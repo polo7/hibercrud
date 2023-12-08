@@ -1,0 +1,5 @@
+[environments.default]
+url = "jdbc:postgresql://localhost:5432/hibercrud"
+user = "postgres"
+#password = ""
+#baseDir = "/src/main/resources/db/"
