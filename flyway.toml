@@ -1,5 +1,9 @@
-#[environments.default]
-#url = "jdbc:postgresql://localhost:5432/hibercrud"
-#user = "postgres"
-#password = ""
-#baseDir = "/src/main/resources/db/"
+[environments.default]
+url = "jdbc:postgresql://localhost:5432/hibercrud"
+user = "postgres"
+password = ""
+#baseDir = "/src/main/resources/db/migration"
+
+[flyway]
+#locations = ["filesystem:/src/main/resources/db/migration"]
+locations = ["classpath:/src/main/resources/db/migration"]

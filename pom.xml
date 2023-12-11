@@ -25,19 +25,6 @@
             <version>${postgresql.version}</version>
         </dependency>
 
-        <!-- С этой зависимостью тоже не работает -->
-<!--        <dependency>-->
-<!--            <groupId>org.flywaydb</groupId>-->
-<!--            <artifactId>flyway-core</artifactId>-->
-<!--            <version>${flyway.version}</version>-->
-<!--        </dependency>-->
-        <!-- С этой зависимостью тоже не работает -->
-<!--        <dependency>-->
-<!--            <groupId>org.flywaydb</groupId>-->
-<!--            <artifactId>flyway-maven-plugin</artifactId>-->
-<!--            <version>${flyway.version}</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-database-postgresql</artifactId>
@@ -70,19 +57,9 @@
                     <url>jdbc:postgresql://localhost:5432/hibercrud</url>
                     <user>postgres</user>
                     <locations>
-                        <location>classpath:./src/main/resources/db/migration</location>
+                        <location>filesystem:./src/main/resources/db/migration</location>
                     </locations>
-<!--                    <configFiles>-->
-<!--                        <configFile>flyway.toml</configFile>-->
-<!--                    </configFiles>-->
                 </configuration>
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>org.postgresql</groupId>-->
-<!--                        <artifactId>postgresql</artifactId>-->
-<!--                        <version>${postgresql.version}</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
             </plugin>
         </plugins>
     </build>
