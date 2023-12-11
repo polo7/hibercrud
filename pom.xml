@@ -15,7 +15,7 @@
         <postgresql.version>42.7.0</postgresql.version>
         <junit.version>5.10.0</junit.version>
         <mockito.version>5.7.0</mockito.version>
-        <flyway.version>10.1.0</flyway.version>
+        <flyway.version>10.2.0</flyway.version>
     </properties>
 
     <dependencies>
@@ -29,8 +29,21 @@
 <!--        <dependency>-->
 <!--            <groupId>org.flywaydb</groupId>-->
 <!--            <artifactId>flyway-core</artifactId>-->
-<!--            <version>10.1.0</version>-->
+<!--            <version>${flyway.version}</version>-->
 <!--        </dependency>-->
+        <!-- С этой зависимостью тоже не работает -->
+<!--        <dependency>-->
+<!--            <groupId>org.flywaydb</groupId>-->
+<!--            <artifactId>flyway-maven-plugin</artifactId>-->
+<!--            <version>${flyway.version}</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>${flyway.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -38,6 +51,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -53,12 +67,22 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway.version}</version>
                 <configuration>
-                    <url>jdbc:postgresql://localhost/hibercrud</url>
+                    <url>jdbc:postgresql://localhost:5432/hibercrud</url>
                     <user>postgres</user>
+                    <locations>
+                        <location>classpath:./src/main/resources/db/migration</location>
+                    </locations>
 <!--                    <configFiles>-->
 <!--                        <configFile>flyway.toml</configFile>-->
 <!--                    </configFiles>-->
                 </configuration>
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.postgresql</groupId>-->
+<!--                        <artifactId>postgresql</artifactId>-->
+<!--                        <version>${postgresql.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
             </plugin>
         </plugins>
     </build>
