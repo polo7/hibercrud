@@ -1,8 +1,20 @@
 package dev.lesechko.hibercrud.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "labels")
 public class Label {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private Status status;
 
     public Label() {}

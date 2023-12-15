@@ -13,4 +13,17 @@ CREATE TABLE hibernate_developers(
    experience INT DEFAULT NULL
 );
 
+CREATE TABLE labels(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    status VARCHAR(7)
+);
+
+CREATE TABLE posts(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(50),
+    content VARCHAR,
+    -- list of labels?
+);
+
 --CREATE SEQUENCE hibernate_developers_seq start 1 increment 1;

@@ -25,8 +25,8 @@
         </property>
 
         <mapping class="dev.lesechko.hibercrud.Developer"/>
-
-        <!-- List of XML mapping files -->
-<!--        <mapping resource="Developer.hbm.xml"/>-->
+        <mapping class="dev.lesechko.hibercrud.model.Label"/>
+        <mapping class="dev.lesechko.hibercrud.model.Post"/>
+        <mapping class="dev.lesechko.hibercrud.model.Writer"/>
     </session-factory>
 </hibernate-configuration>

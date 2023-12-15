@@ -2,9 +2,9 @@ package dev.lesechko.hibercrud.controller;
 
 import java.util.List;
 
-import dev.lesechko.jdbccrud.model.Label;
-import dev.lesechko.jdbccrud.model.Status;
-import dev.lesechko.jdbccrud.service.LabelService;
+import dev.lesechko.hibercrud.model.Label;
+import dev.lesechko.hibercrud.model.Status;
+import dev.lesechko.hibercrud.service.LabelService;
 
 public class LabelController {
     private final LabelService labelService = new LabelService();

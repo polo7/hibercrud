@@ -2,11 +2,28 @@ package dev.lesechko.hibercrud.model;
 
 import java.util.List;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "content")
     private String content;
+
+    @Column(name = "labels") //TODO: определить связь по Hibernate
     private List<Label> labels;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private Status status;
 
     public Post() {}
