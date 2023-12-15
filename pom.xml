@@ -12,6 +12,8 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <hibernate.version>6.4.0.Final</hibernate.version>-->
+        <hibernate.version>6.0.2.Final</hibernate.version>
         <postgresql.version>42.7.0</postgresql.version>
         <junit.version>5.10.0</junit.version>
         <mockito.version>5.7.0</mockito.version>
@@ -22,7 +24,7 @@
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.4.0.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
