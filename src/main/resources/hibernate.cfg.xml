@@ -23,5 +23,10 @@
         <property name="hibernate.connection.password">
             password
         </property>
+
+        <mapping class="dev.lesechko.hibercrud.Developer"/>
+
+        <!-- List of XML mapping files -->
+<!--        <mapping resource="Developer.hbm.xml"/>-->
     </session-factory>
 </hibernate-configuration>

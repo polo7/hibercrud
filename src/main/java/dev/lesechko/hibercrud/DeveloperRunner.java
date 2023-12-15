@@ -7,8 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import dev.lesechko.hibercrud.Developer;
-
 public class DeveloperRunner {
     private static SessionFactory sessionFactory;
 
@@ -16,12 +14,7 @@ public class DeveloperRunner {
         Session session = sessionFactory.openSession();
         Transaction transaction =  null;
         transaction = session.beginTransaction();
-//        Developer developer = new Developer(firstName, lastName, specialty, experience);
-        Developer developer = new Developer();
-        developer.setFirstName(firstName);
-        developer.setLastName(lastName);
-        developer.setSpecialty(specialty);
-        developer.setExperience(experience);
+        Developer developer = new Developer(firstName, lastName, specialty, experience);
         session.persist(developer);
         transaction.commit();
         session.close();
