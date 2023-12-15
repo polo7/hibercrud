@@ -20,6 +20,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.4.0.Final</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
@@ -56,6 +62,7 @@
                 <configuration>
                     <url>jdbc:postgresql://localhost:5432/hibercrud</url>
                     <user>postgres</user>
+                    <password>password</password>
                     <locations>
                         <location>filesystem:./src/main/resources/db/migration</location>
                     </locations>
