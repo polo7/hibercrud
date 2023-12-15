@@ -25,9 +25,7 @@ public class Developer {
 
     public Developer() {}
 
-//    public Developer(int id, String firstName, String lastName, String specialty, int experience) {
     public Developer(String firstName, String lastName, String specialty, int experience) {
-//        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.specialty = specialty;
