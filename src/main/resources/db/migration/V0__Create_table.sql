@@ -3,6 +3,8 @@
 --    name VARCHAR(255)
 --);
 
+-- TODO: создание таблиц для POJO
+
 CREATE TABLE hibernate_developers(
    id SERIAL PRIMARY KEY,
    first_name VARCHAR(50) DEFAULT NULL,
