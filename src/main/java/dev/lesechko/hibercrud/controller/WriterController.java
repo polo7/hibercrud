@@ -1,9 +1,9 @@
 package dev.lesechko.hibercrud.controller;
 
-import dev.lesechko.jdbccrud.model.Post;
-import dev.lesechko.jdbccrud.model.Status;
-import dev.lesechko.jdbccrud.model.Writer;
-import dev.lesechko.jdbccrud.service.WriterService;
+import dev.lesechko.hibercrud.model.Post;
+import dev.lesechko.hibercrud.model.Status;
+import dev.lesechko.hibercrud.model.Writer;
+import dev.lesechko.hibercrud.service.WriterService;
 
 import java.util.List;
 

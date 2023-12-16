@@ -3,9 +3,9 @@ package dev.lesechko.hibercrud.view;
 import java.util.Scanner;
 import java.util.List;
 
-import dev.lesechko.jdbccrud.controller.LabelController;
-import dev.lesechko.jdbccrud.model.Label;
-import dev.lesechko.jdbccrud.model.Status;
+import dev.lesechko.hibercrud.controller.LabelController;
+import dev.lesechko.hibercrud.model.Label;
+import dev.lesechko.hibercrud.model.Status;
 
 
 public class LabelView {

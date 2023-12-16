@@ -2,10 +2,10 @@ package dev.lesechko.hibercrud.controller;
 
 import java.util.List;
 
-import dev.lesechko.jdbccrud.model.Label;
-import dev.lesechko.jdbccrud.model.Post;
-import dev.lesechko.jdbccrud.model.Status;
-import dev.lesechko.jdbccrud.service.PostService;
+import dev.lesechko.hibercrud.model.Label;
+import dev.lesechko.hibercrud.model.Post;
+import dev.lesechko.hibercrud.model.Status;
+import dev.lesechko.hibercrud.service.PostService;
 
 
 public class PostController {

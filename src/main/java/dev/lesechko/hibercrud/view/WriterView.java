@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dev.lesechko.jdbccrud.controller.WriterController;
-import dev.lesechko.jdbccrud.controller.PostController;
-import dev.lesechko.jdbccrud.model.Post;
-import dev.lesechko.jdbccrud.model.Status;
-import dev.lesechko.jdbccrud.model.Writer;
+import dev.lesechko.hibercrud.controller.WriterController;
+import dev.lesechko.hibercrud.controller.PostController;
+import dev.lesechko.hibercrud.model.Post;
+import dev.lesechko.hibercrud.model.Status;
+import dev.lesechko.hibercrud.model.Writer;
 
 
 public class WriterView {

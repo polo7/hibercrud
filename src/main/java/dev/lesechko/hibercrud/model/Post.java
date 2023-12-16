@@ -19,7 +19,7 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "labels") //TODO: определить связь по Hibernate
+    @ManyToMany //TODO: это правильно? Когда нужен bidirectional, мы там зеркальный список делаем? и как понять mappedby?
     private List<Label> labels;
 
     @Enumerated(EnumType.STRING)

@@ -2,9 +2,9 @@ package dev.lesechko.hibercrud.service;
 
 import java.util.List;
 
-import dev.lesechko.jdbccrud.model.Label;
-import dev.lesechko.jdbccrud.repository.LabelRepository;
-import dev.lesechko.jdbccrud.repository.jdbc.JdbcLabelRepositoryImpl;
+import dev.lesechko.hibercrud.model.Label;
+import dev.lesechko.hibercrud.repository.LabelRepository;
+import dev.lesechko.hibercrud.repository.jdbc.JdbcLabelRepositoryImpl;
 
 
 public class LabelService {

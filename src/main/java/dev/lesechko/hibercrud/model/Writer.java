@@ -12,12 +12,16 @@ public class Writer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "posts") //TODO: связь по Hibernate
+
+    @OneToMany //TODO: это правильно?
     private List<Post> posts;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
@@ -48,6 +52,7 @@ public class Writer {
         this.lastName = lastName;
     }
 
+//    TODO: раньше был метод composeFulleName(). Я удалил. Это бизнес-логика?
 //    public String composeFullName() {
 //        String fullName = "";
 //        if (lastName != null && !lastName.isEmpty())
@@ -72,4 +77,5 @@ public class Writer {
     public void setStatus(Status status) {
         this.status = status;
     }
+
 }

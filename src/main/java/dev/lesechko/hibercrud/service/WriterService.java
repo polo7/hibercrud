@@ -1,8 +1,8 @@
 package dev.lesechko.hibercrud.service;
 
-import dev.lesechko.jdbccrud.model.Writer;
-import dev.lesechko.jdbccrud.repository.WriterRepository;
-import dev.lesechko.jdbccrud.repository.jdbc.JdbcWriterRepositoryImpl;
+import dev.lesechko.hibercrud.model.Writer;
+import dev.lesechko.hibercrud.repository.WriterRepository;
+import dev.lesechko.hibercrud.repository.jdbc.JdbcWriterRepositoryImpl;
 
 import java.util.List;
 

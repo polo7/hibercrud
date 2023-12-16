@@ -1,8 +1,8 @@
 package dev.lesechko.hibercrud.service;
 
-import dev.lesechko.jdbccrud.model.Post;
-import dev.lesechko.jdbccrud.repository.PostRepository;
-import dev.lesechko.jdbccrud.repository.jdbc.JdbcPostRepositoryImpl;
+import dev.lesechko.hibercrud.model.Post;
+import dev.lesechko.hibercrud.repository.PostRepository;
+import dev.lesechko.hibercrud.repository.jdbc.JdbcPostRepositoryImpl;
 
 import java.util.List;
 
