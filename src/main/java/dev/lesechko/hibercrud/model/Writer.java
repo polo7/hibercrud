@@ -19,7 +19,7 @@ public class Writer {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany //TODO: это правильно?
+    @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
     private List<Post> posts;
 
     @Enumerated(EnumType.STRING)
@@ -51,16 +51,6 @@ public class Writer {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-//    TODO: раньше был метод composeFulleName(). Я удалил. Это бизнес-логика?
-//    public String composeFullName() {
-//        String fullName = "";
-//        if (lastName != null && !lastName.isEmpty())
-//            fullName += lastName + ", ";
-//        if (firstName != null && !firstName.isEmpty())
-//            fullName += firstName;
-//        return fullName;
-//    }
 
     public List<Post> getPosts() {
         return posts;

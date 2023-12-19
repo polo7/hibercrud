@@ -2,7 +2,8 @@ package dev.lesechko.hibercrud.service;
 
 import dev.lesechko.hibercrud.model.Writer;
 import dev.lesechko.hibercrud.repository.WriterRepository;
-import dev.lesechko.hibercrud.repository.jdbc.JdbcWriterRepositoryImpl;
+import dev.lesechko.hibercrud.repository.hibernate.HibernateWriterRepositoryImpl;
+
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class WriterService {
     WriterRepository writerRepository; //= new WriterRepositoryImpl();
 
     public WriterService() {
-        writerRepository = new JdbcWriterRepositoryImpl();
+        writerRepository = new HibernateWriterRepositoryImpl();
     }
 
     public WriterService(WriterRepository writerRepository) {

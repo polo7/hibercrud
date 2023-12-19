@@ -4,7 +4,7 @@ import java.util.List;
 
 import dev.lesechko.hibercrud.model.Label;
 import dev.lesechko.hibercrud.repository.LabelRepository;
-import dev.lesechko.hibercrud.repository.jdbc.JdbcLabelRepositoryImpl;
+import dev.lesechko.hibercrud.repository.hibernate.HibernateLabelRepositoryImpl;
 
 
 public class LabelService {
@@ -12,7 +12,7 @@ public class LabelService {
     private final LabelRepository labelRepository;
 
     public LabelService() {
-        labelRepository = new JdbcLabelRepositoryImpl();
+        labelRepository = new HibernateLabelRepositoryImpl();
     }
 
     // Used for tests

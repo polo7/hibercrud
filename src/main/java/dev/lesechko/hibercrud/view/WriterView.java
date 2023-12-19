@@ -89,7 +89,7 @@ public class WriterView {
 
         if (writers != null && !writers.isEmpty()) {
             for (var writer : writers)
-                System.out.printf("%-19d %-30s %-7s\n", writer.getId(), writer.composeFullName(), writer.getStatus());
+                System.out.printf("%-19d %-30s %-7s\n", writer.getId(), writer.getFirstName() + " " + writer.getLastName(), writer.getStatus());
         } else {
             System.out.println("List is empty");
         }
@@ -104,7 +104,7 @@ public class WriterView {
         System.out.printf("%-19s %-30s %-7s\n", "ID", "NAME", "STATUS");
         Writer writer = writerController.getById(id);
         if (writer != null) {
-            System.out.printf("%-19d %-30s %-7s\n", writer.getId(), writer.composeFullName(), writer.getStatus());
+            System.out.printf("%-19d %-30s %-7s\n", writer.getId(), writer.getFirstName() + " " + writer.getLastName(), writer.getStatus());
 
             System.out.println("Posts");
             System.out.printf("%-19s %-30s\n", "ID", "TITLE");

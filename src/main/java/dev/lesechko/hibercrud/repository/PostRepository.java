@@ -1,6 +1,6 @@
 package dev.lesechko.hibercrud.repository;
 
-import dev.lesechko.jdbccrud.model.Post;
+import dev.lesechko.hibercrud.model.Post;
 
 public interface PostRepository extends GenericRepository<Post, Long> {
 

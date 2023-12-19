@@ -19,12 +19,21 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany //TODO: это правильно? Когда нужен bidirectional, мы там зеркальный список делаем? и как понять mappedby?
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "post_labels",
+            joinColumns = { @JoinColumn(name = "post_id") },
+            inverseJoinColumns = { @JoinColumn(name = "label_id") }
+    )
     private List<Label> labels;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "writer_id")
+    private Writer writer;
 
     public Post() {}
 

@@ -4,20 +4,23 @@ CREATE TABLE labels(
     status VARCHAR
 );
 
-CREATE TABLE posts(
-    id SERIAL PRIMARY KEY,
-    title VARCHAR,
-    content VARCHAR,
-    -- list of labels?
-    status VARCHAR
-);
-
 CREATE TABLE writers(
     id SERIAL PRIMARY KEY,
     first_name VARCHAR,
     last_name VARCHAR,
-    -- list of posts?
     status VARCHAR
 );
 
---CREATE SEQUENCE hibernate_developers_seq start 1 increment 1;
+CREATE TABLE posts(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR,
+    content VARCHAR,
+    status VARCHAR,
+    writer_id BIGINT REFERENCES writers(id)
+);
+
+CREATE TABLE post_labels(
+    post_id BIGINT REFERENCES posts(id),
+    label_id BIGINT REFERENCES labels(id),
+    UNIQUE (post_id, label_id)
+);
