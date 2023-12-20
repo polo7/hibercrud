@@ -36,7 +36,7 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
     }
 
     @Override
-    public List<Label> getAll() { //TODO: add data and check
+    public List<Label> getAll() {
         String hql = "FROM Label";
         Transaction transaction = null;
         try (Session session = HibernateConnectionUtils.getNewSession()) {
@@ -46,8 +46,8 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
             return labels;
         } catch (Exception e) {
             if (transaction != null) {
-                System.err.println("Rolling back transaction");
                 transaction.rollback();
+                System.err.println("Rolling back transaction");
             }
             e.printStackTrace();
             return null;
@@ -56,43 +56,58 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
 
     @Override
     public Label getById(Long id) {
-//        Label label = null;
-//        String sql = "SELECT * FROM labels WHERE id = ?";
-//        try (PreparedStatement stmnt = DbConnectionUtils.getPreparedStatement(sql)) {
-//            stmnt.setLong(1, id);
-//            ResultSet rs = stmnt.executeQuery();
-//            if (rs.next()) {
-//                label = new Label();
-//                label.setId(rs.getLong("id"));
-//                label.setName(rs.getString("name"));
-//                label.setStatus(Status.valueOf(rs.getString("status")));
-//            }
-//            return label;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-        return null;
+        Transaction transaction = null;
+        try (Session session = HibernateConnectionUtils.getNewSession()) {
+            transaction = session.beginTransaction();
+            Label label = session.get(Label.class, id);
+            transaction.commit();
+            return label;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+                System.err.println("Rolling back transaction");
+            }
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public Label update(Label label) {
-//        String sql = "UPDATE labels SET name = ?, status = ? WHERE id = ?";
-//        try (PreparedStatement stmnt = DbConnectionUtils.getPreparedStatement(sql)) {
-//            stmnt.setString(1, label.getName());
-//            stmnt.setString(2, label.getStatus().name());
-//            stmnt.setLong(3, label.getId());
-//            if (stmnt.executeUpdate() == 0) return null;
-//            return label;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-        return null;
+        Transaction transaction = null;
+        try (Session session = HibernateConnectionUtils.getNewSession()) {
+            transaction = session.beginTransaction();
+            session.merge(label);
+            transaction.commit();
+            return label;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+                System.err.println("Rolling back transaction");
+            }
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public boolean deleteById(Long id) {
+        Transaction transaction = null;
+        try (Session session = HibernateConnectionUtils.getNewSession()) {
+            transaction = session.beginTransaction();
+            Label label = session.get(Label.class, id);
+            label.setStatus(Status.DELETED);
+            session.merge(label);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+                System.err.println("Rolling back transaction");
+            }
+            e.printStackTrace();
+            return false;
+        }
 //        String sql = "DELETE FROM labels WHERE id = ?";
 //        String sql = "UPDATE labels SET status = 'DELETED' WHERE id = ?";
 //        try (PreparedStatement stmnt = DbConnectionUtils.getPreparedStatement(sql)) {
@@ -102,6 +117,5 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
 //            e.printStackTrace();
 //            return false;
 //        }
-        return false;
     }
 }
