@@ -19,7 +19,7 @@ public class Writer {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "writer", fetch = FetchType.EAGER) //TODO: EAGER, иначе в PostView "...proxy - no Session"
     private List<Post> posts;
 
     @Enumerated(EnumType.STRING)

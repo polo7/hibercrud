@@ -11,6 +11,13 @@ import dev.lesechko.hibercrud.utils.HibernateConnectionUtils;
 
 
 public class HibernateLabelRepositoryImpl implements LabelRepository {
+    private void rollbackTransaction(Transaction t) {
+        if (t != null) {
+            t.rollback();
+            System.err.println("Rolling back transaction");
+        }
+    }
+
     @Override
     public Label save(Label label) {
         Transaction transaction = null;
@@ -31,11 +38,10 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
 
     @Override
     public List<Label> getAll() {
-        String hql = "FROM Label";
         Transaction transaction = null;
         try (Session session = HibernateConnectionUtils.getNewSession()) {
             transaction = session.beginTransaction();
-            List<Label> labels = session.createQuery(hql, Label.class).list();
+            List<Label> labels = session.createQuery("FROM Label", Label.class).list();
             transaction.commit();
             return labels;
         } catch (Exception e) {

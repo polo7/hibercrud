@@ -19,7 +19,7 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER) //TODO: EAGER, иначе в PostView "...proxy - no Session"
     @JoinTable(
             name = "post_labels",
             joinColumns = { @JoinColumn(name = "post_id") },
@@ -31,7 +31,7 @@ public class Post {
     @Column(name = "status")
     private Status status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "writer_id")
     private Writer writer;
 
@@ -75,5 +75,13 @@ public class Post {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Writer getWriter() {
+        return writer;
+    }
+
+    public void setWriter(Writer writer) {
+        this.writer = writer;
     }
 }
