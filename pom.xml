@@ -12,11 +12,12 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<!--        <hibernate.version>6.4.0.Final</hibernate.version>-->
-        <hibernate.version>6.0.2.Final</hibernate.version>
+        <hibernate.version>6.4.0.Final</hibernate.version>
+<!--        <hibernate.version>6.0.2.Final</hibernate.version>-->
         <postgresql.version>42.7.0</postgresql.version>
         <junit.version>5.10.0</junit.version>
-        <mockito.version>5.7.0</mockito.version>
+<!--        <mockito.version>5.7.0</mockito.version>-->
+        <mockito.version>5.8.0</mockito.version>
         <flyway.version>10.2.0</flyway.version>
     </properties>
 
