@@ -8,14 +8,12 @@ import dev.lesechko.hibercrud.repository.hibernate.HibernateLabelRepositoryImpl;
 
 
 public class LabelService {
-//    private final LabelRepository labelRepository = new LabelRepositoryImpl();
     private final LabelRepository labelRepository;
 
     public LabelService() {
         labelRepository = new HibernateLabelRepositoryImpl();
     }
 
-    // Used for tests
     public LabelService(LabelRepository labelRepository) {
         this.labelRepository = labelRepository;
     }

@@ -164,7 +164,7 @@ public class WriterView {
             String action = (writer.getStatus() == Status.ACTIVE) ? "Delete" : "Restore";
             System.out.print(action + " element? (type [yes/no]): ");
             String statusReply = sc.nextLine();
-            boolean changeStatus = "yes".equals(statusReply.trim().toLowerCase());
+            boolean changeStatus = "yes".equalsIgnoreCase(statusReply.trim());
 
             // SAVING CHANGES
             Writer updatedWriter = writerController.update(writer, newLastName, newFirstName, newWriterPosts, changeStatus);

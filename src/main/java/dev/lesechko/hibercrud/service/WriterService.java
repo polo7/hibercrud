@@ -8,7 +8,7 @@ import dev.lesechko.hibercrud.repository.hibernate.HibernateWriterRepositoryImpl
 import java.util.List;
 
 public class WriterService {
-    WriterRepository writerRepository; //= new WriterRepositoryImpl();
+    WriterRepository writerRepository;
 
     public WriterService() {
         writerRepository = new HibernateWriterRepositoryImpl();

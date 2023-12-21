@@ -19,7 +19,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
         }
     }
 
-//    private void addLabelsForPostId(List<Label> labels, Long postId) throws SQLException {
+//    private void addLabelsForPostId(List<Label> labels, Long postId) throws SQLException { //TODO: об этом Hibernate заботится
 //        String sql = "INSERT INTO post_labels (postId, labelId) VALUES (?, ?)";
 //        try (PreparedStatement stmnt = DbConnectionUtils.getPreparedStatement(sql)) {
 //            for (var label : labels) {
@@ -41,6 +41,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
             return post;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -55,6 +56,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
             return posts;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -69,6 +71,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
             return post;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -83,6 +86,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
             return post;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -99,6 +103,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
             return true;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return false;
         }
     }

@@ -19,7 +19,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             System.err.println("Rolling back transaction");
         }
     }
-    private void addWriterForPosts(Writer writer, List<Post> posts) { //TODO: почему Hibernate сам не обновил FK?
+    private void addWriterForPosts(Writer writer, List<Post> posts) { //TODO: Hibernate должен сам обновить FK или нет?
         Transaction transaction = null;
         try (Session session = HibernateConnectionUtils.getNewSession()) {
             transaction = session.beginTransaction();
@@ -30,6 +30,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             transaction.commit();
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
         }
     }
 
@@ -44,6 +45,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             return writer;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -58,6 +60,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             return writers;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -72,6 +75,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             return writer;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -87,6 +91,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             return writer;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return null;
         }
     }
@@ -103,6 +108,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
             return true;
         } catch (Exception e) {
             rollbackTransaction(transaction);
+            e.printStackTrace();
             return false;
         }
     }

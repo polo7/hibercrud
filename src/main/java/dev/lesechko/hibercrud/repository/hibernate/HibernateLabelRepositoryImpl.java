@@ -1,6 +1,7 @@
 package dev.lesechko.hibercrud.repository.hibernate;
 
 import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -27,10 +28,7 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
             transaction.commit();
             return label;
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-                System.err.println("Rolling back transaction");
-            }
+            rollbackTransaction(transaction);
             e.printStackTrace();
             return null;
         }
@@ -45,10 +43,7 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
             transaction.commit();
             return labels;
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-                System.err.println("Rolling back transaction");
-            }
+            rollbackTransaction(transaction);
             e.printStackTrace();
             return null;
         }
@@ -63,10 +58,7 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
             transaction.commit();
             return label;
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-                System.err.println("Rolling back transaction");
-            }
+            rollbackTransaction(transaction);
             e.printStackTrace();
             return null;
         }
@@ -81,10 +73,7 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
             transaction.commit();
             return label;
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-                System.err.println("Rolling back transaction");
-            }
+            rollbackTransaction(transaction);
             e.printStackTrace();
             return null;
         }
@@ -101,10 +90,7 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
             transaction.commit();
             return true;
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-                System.err.println("Rolling back transaction");
-            }
+            rollbackTransaction(transaction);
             e.printStackTrace();
             return false;
         }
