@@ -24,7 +24,6 @@
             password
         </property>
 
-        <mapping class="dev.lesechko.hibercrud.Developer"/>
         <mapping class="dev.lesechko.hibercrud.model.Label"/>
         <mapping class="dev.lesechko.hibercrud.model.Post"/>
         <mapping class="dev.lesechko.hibercrud.model.Writer"/>
