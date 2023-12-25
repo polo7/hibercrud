@@ -19,9 +19,9 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany(fetch = FetchType.EAGER) //TODO: EAGER, иначе в PostView стр.124 "...proxy - no Session"
-    @JoinTable(
-            name = "post_labels",
+    @ManyToMany(fetch = FetchType.EAGER)    //TODO: EAGER, иначе в PostView стр.124 "...proxy - no Session". Не понимаю, как избежать?
+    @JoinTable(                             // https://vladmihalcea.com/the-open-session-in-view-anti-pattern/
+            name = "post_labels",           // https://vladmihalcea.com/the-best-way-to-handle-the-lazyinitializationexception/
             joinColumns = { @JoinColumn(name = "post_id") },
             inverseJoinColumns = { @JoinColumn(name = "label_id") }
     )

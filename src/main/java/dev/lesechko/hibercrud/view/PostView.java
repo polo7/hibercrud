@@ -121,8 +121,8 @@ public class PostView {
             System.out.printf("%-19d %-30s %-7s\n", post.getId(), post.getTitle(), post.getStatus());
 
             System.out.print("Labels: ");
-            List<Label> postLabels = post.getLabels(); // пользуемся POJO-геттером
-            for (Label label : postLabels) {
+            List<Label> postLabels = post.getLabels();  // пользуемся POJO-геттером
+            for (Label label : postLabels) {            // прочитал, но как быть? https://vladmihalcea.com/the-open-session-in-view-anti-pattern/
                 System.out.print("[" + label.getName() + "] ");
             }
             System.out.println();
