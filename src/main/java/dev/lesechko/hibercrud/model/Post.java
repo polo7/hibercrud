@@ -19,7 +19,7 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany(fetch = FetchType.EAGER) //TODO: EAGER, иначе в PostView "...proxy - no Session"
+    @ManyToMany(fetch = FetchType.EAGER) //TODO: EAGER, иначе в PostView стр.124 "...proxy - no Session"
     @JoinTable(
             name = "post_labels",
             joinColumns = { @JoinColumn(name = "post_id") },

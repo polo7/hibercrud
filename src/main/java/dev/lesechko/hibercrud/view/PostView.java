@@ -121,7 +121,7 @@ public class PostView {
             System.out.printf("%-19d %-30s %-7s\n", post.getId(), post.getTitle(), post.getStatus());
 
             System.out.print("Labels: ");
-            List<Label> postLabels = post.getLabels();
+            List<Label> postLabels = post.getLabels(); // пользуемся POJO-геттером
             for (Label label : postLabels) {
                 System.out.print("[" + label.getName() + "] ");
             }
